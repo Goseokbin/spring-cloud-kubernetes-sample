@@ -1,0 +1,23 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: department
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: "jdbc:postgresql://localhost:5432/myapp"
+    username: postgres
+    password: go_seokbin3438
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+      format_sql: true
+      jdbc:
+        lob:
+          non_contextual_creation: true
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

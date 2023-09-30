@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: department
+  name: department
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: department
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: department
+    spec:
+      containers:
+        - image: 077728726991.dkr.ecr.us-east-2.amazonaws.com/department:latest
+          imagePullPolicy: Always
+          name: department
+          ports:
+            - containerPort: 8082
+      imagePullSecrets:
+        - name: regcred
