@@ -4,4 +4,4 @@ ENV APP_HOME /workflow
 EXPOSE 8083
 COPY build/libs/$APP_FILE $APP_HOME/
 WORKDIR $APP_HOME
-ENTRYPOINT ["java","-jar","-Dspring.profiles.active=k8s","department-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar","-Dspring.profiles.active=prd","department-0.0.1-SNAPSHOT.jar"]
