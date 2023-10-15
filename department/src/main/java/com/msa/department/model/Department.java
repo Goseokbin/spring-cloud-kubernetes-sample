@@ -1,9 +1,6 @@
 package com.msa.department.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.DynamicUpdate;
@@ -12,18 +9,16 @@ import org.hibernate.annotations.DynamicUpdate;
 @Entity
 @Table(name = "department")
 @Getter
+@Setter
 @DynamicUpdate
 public class Department {
 
 	@Column(name = "id")
-	@Id
-	private String id;
-	@Column(name = "organizationId")
-	@Setter
-	private String organizationId;
+	@Id@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
 	@Column(name = "name")
-	@Setter
 	private String name;
+
 //	@Transient
 //	private List<Employee> employees = new ArrayList<>();
 
@@ -33,7 +28,7 @@ public class Department {
 
 	@Override
 	public String toString() {
-		return "Department [id=" + id + ", organizationId=" + organizationId + ", name=" + name + "]";
+		return "Department [id=" + id + ", name=" + name + "]";
 	}
 
 }
